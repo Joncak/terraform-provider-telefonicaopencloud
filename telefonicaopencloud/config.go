@@ -300,3 +300,10 @@ func (c *Config) loadCESClient(region string) (*gophercloud.ServiceClient, error
 		Availability: c.getEndpointType(),
 	})
 }
+
+func (c *Config) kmsKeyV1Client(region string) (*gophercloud.ServiceClient, error) {
+	return openstack.NewKmsKeyV1(c.OsClient, gophercloud.EndpointOpts{
+		Region:       c.determineRegion(region),
+		Availability: c.getEndpointType(),
+	})
+}
