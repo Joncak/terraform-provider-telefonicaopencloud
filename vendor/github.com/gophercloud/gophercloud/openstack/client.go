@@ -473,3 +473,12 @@ func NewRdsServiceV1(client *gophercloud.ProviderClient, eo gophercloud.Endpoint
 	newsc.Type = "rds"
 	return newsc, err
 }
+
+func NewKmsKeyV1(client *gophercloud.ProviderClient, eo gophercloud.EndpointOpts) (*gophercloud.ServiceClient, error) {
+	sc, err := initClientOpts(client, eo, "compute")
+	sc.Endpoint = strings.Replace(sc.Endpoint, "ecs", "kms", 1)
+	sc.Endpoint = strings.Replace(sc.Endpoint, "v2", "v1.0", 1)
+	sc.ResourceBase = sc.Endpoint + "kms/"
+	sc.Type = "kms"
+	return sc, err
+}
