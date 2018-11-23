@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/Joncak/terraform-provider-telefonicaopencloud/telefonicaopencloud"
 	"github.com/hashicorp/terraform/plugin"
+	"github.com/joncak/terraform-provider-telefonicaopencloud/telefonicaopencloud"
 )
 
 func main() {
